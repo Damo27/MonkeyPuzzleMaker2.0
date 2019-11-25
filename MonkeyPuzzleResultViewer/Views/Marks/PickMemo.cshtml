@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MonkeyPuzzleResultViewer.Models.Mark>
+
+@{
+    ViewBag.Title = "PickMemo";
+}
+
+<h2>Which memo would you like to view?</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Test.TestName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Test.TestName)
+            </td>
+            <td>
+                @Html.ActionLink("View Memo", "Memo", "Marks", new { id = item.testID }, null)
+            </td>
+        </tr>
+    }
+
+</table>

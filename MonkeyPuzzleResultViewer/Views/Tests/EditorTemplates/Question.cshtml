@@ -1,0 +1,46 @@
+﻿@model MonkeyPuzzleResultViewer.Models.Question
+
+@Html.HiddenFor(m => m.AnswerA)
+@Html.HiddenFor(m => m.AnswerB)
+@Html.HiddenFor(m => m.AnswerC)
+@Html.HiddenFor(m => m.AnswerD)
+@Html.HiddenFor(m => m.CorrectAnswer)
+@Html.HiddenFor(m => m.Question1)
+@Html.HiddenFor(m => m.questionID)
+@Html.HiddenFor(m => m.Test)
+@Html.HiddenFor(m => m.testID)
+
+<div class="form-group">
+    <div class="col-md-10">
+        @Html.RadioButtonFor(m => Model.SelectedAnswer, "A" ,  new { required = "True"})
+        A)
+        @Html.DisplayFor(m => Model.AnswerA)
+    </div>
+</div>
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => Model.SelectedAnswer, "B" , new { required = "True"})
+            B)
+            @Html.DisplayFor(m => Model.AnswerB)
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.RadioButtonFor(m => Model.SelectedAnswer, "C", new { required = "True"})
+                C)
+                @Html.DisplayFor(m => Model.AnswerC)
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.RadioButtonFor(m => Model.SelectedAnswer, "D", new { required = "True"})
+                    D)
+                    @Html.DisplayFor(m => Model.AnswerD)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ValidationMessageFor(m => Model.SelectedAnswer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+

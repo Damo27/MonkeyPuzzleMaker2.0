@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MonkeyPuzzleResultViewer.Models.Mark>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Your Results</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Test.TestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Test.TestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mark1)/@Html.DisplayFor(modelItem => item.Test.NumOfQuestions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percentage)%
+        </td>
+        <td>
+            @Html.ActionLink("View Memo", "Memo", "Marks", new { id = item.testID }, null)
+        </td>
+    </tr>
+}
+
+</table>

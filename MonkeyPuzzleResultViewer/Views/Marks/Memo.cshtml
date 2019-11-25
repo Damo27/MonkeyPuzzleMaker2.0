@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MonkeyPuzzleResultViewer.Models.Question>
+
+@{
+    ViewBag.Title = "Memorandum";
+}
+
+<h2>@Html.DisplayFor(model => model.FirstOrDefault().Test.TestName)</h2>
+
+<div>
+    <h4>Memorandum</h4>
+    <hr />
+    <p style="text-align:left; font-size:larger;">
+        @Html.DisplayNameFor(model => model.Test.NumOfQuestions): @Html.DisplayFor(model => model.FirstOrDefault().Test.NumOfQuestions)
+    </p>
+
+    <hr />
+    @{int count = 0; }
+    @foreach (var item in Model)
+    {
+     count++;
+    <dl class="dl-horizontal">
+        <dt style="font-size:larger; margin-bottom:5px;">
+            @Html.DisplayNameFor(model => model.Question1) @count:
+        </dt>
+
+        <dd style="font-size:larger;">
+            @Html.DisplayFor(modelItem => item.Question1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => item.AnswerA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => item.AnswerB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => item.AnswerC)
+        </dd>
+
+        <dt style="margin-bottom:5px;">
+            @Html.DisplayNameFor(model => model.AnswerD)
+        </dt>
+
+        <dd style="margin-bottom:5px;">
+            @Html.DisplayFor(modelItem => item.AnswerD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorrectAnswer):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => item.CorrectAnswer))
+            @switch (item.CorrectAnswer)
+            {
+                case "A":
+                    {
+                        @Html.DisplayFor(modelItem => item.AnswerA)
+                        break;
+                    }
+                case "B":
+                    {
+                        @Html.DisplayFor(modelItem => item.AnswerB)
+                        break;
+                    }
+                case "C":
+                    {
+                        @Html.DisplayFor(modelItem => item.AnswerC)
+                        break;
+                    }
+                case "D":
+                    {
+                        @Html.DisplayFor(modelItem => item.AnswerD)
+                        break;
+                    }
+                default: { break; }
+            }
+        </dd>
+    </dl>
+        <hr />
+    }
+</div>
+<p>
+    @Html.ActionLink("Back to List", "PickMemo")
+</p>

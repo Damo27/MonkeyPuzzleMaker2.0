@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MonkeyPuzzleResultViewer.Models.Test>
+
+@{
+    ViewBag.Title = "Test's";
+}
+
+<h2>List of Test's</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().TestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().NumOfQuestions)
+        </th>
+        <th>
+            Created By
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model.Count() == 0)
+    {
+    <tr>
+        <td>
+            No New Tests Available!
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+    </tr>
+    }
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfQuestions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.DisplayName)
+            </td>
+            <td>
+                @Html.ActionLink("Take Test", "TakeTest", new { id = item.testID })
+            </td>
+        </tr>
+    }
+
+</table>

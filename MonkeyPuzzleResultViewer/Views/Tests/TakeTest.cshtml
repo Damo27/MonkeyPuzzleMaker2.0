@@ -1,0 +1,43 @@
+﻿@model List<MonkeyPuzzleResultViewer.Models.Question>
+
+@{
+    ViewBag.Title = "Take Test";
+}
+
+<h2>@Html.DisplayFor(model => model.FirstOrDefault().Test.TestName)</h2>
+
+<div class="form-horizontal">
+    <hr />
+    @using (@Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        for (int i = 0; i < Model.Count; i++)
+        {
+            <div>
+                <h4> @Html.DisplayFor(_ => Model[i].Question1)</h4>
+                <hr />
+                <div>
+                    @Html.EditorFor(_ => Model[i])
+
+                </div>
+                <hr />
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Save & Submit" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

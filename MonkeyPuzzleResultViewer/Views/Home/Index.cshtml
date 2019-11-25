@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-md-3" style="text-align:center">
+        <p><a class="btn btn-primary btn-lg" href=@Url.Action("Index","Tests")>Take a Test</a></p>
+    </div>
+    <div class="col-md-3" style="text-align:center">
+        <p><a class="btn btn-primary btn-lg" href=@Url.Action("Index","Marks")>View Results</a></p>
+    </div>
+    <div class="col-md-3" style="text-align:center">
+        <p><a class="btn btn-primary btn-lg" href=@Url.Action("PickMemo","Marks")>View a Memo</a></p>
+    </div>
+    <div class="col-md-3" style="text-align:center">
+        <p><a class="btn btn-primary btn-lg" href=@Url.Action("Edit","Users")>Account Details</a></p>
+    </div>
+</div>
